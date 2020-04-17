@@ -1,0 +1,46 @@
+<h2>Pro Color Palette</h2>
+<p>Count: <input id="count" value="5"></p>
+<button id="create">Create</button>
+<button id="cancel">Cancel</button>
+<script>
+  function loadJSON(callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', '', true);
+    xobj.onreadystatechange = function () {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // .open will NOT return a value but simply returns undefined in async mode so use a callback
+        callback(xobj.responseText);
+      }
+    }
+    xobj.send(null);
+  }
+
+  loadJSON(function (response) {
+    jsonresponse = JSON.parse(response);
+    console.log(jsonresponse);
+  });
+
+  loadJSON();
+
+
+  document.getElementById('create').onclick = () => {
+    const textbox = document.getElementById('count');
+    const count = parseInt(textbox.value, 10);
+    parent.postMessage({
+      pluginMessage: {
+        type: 'create-rectangles',
+        count
+      }
+    }, '*')
+  }
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({
+      pluginMessage: {
+        type: 'cancel'
+      }
+    }, '*')
+  }
+</script>
