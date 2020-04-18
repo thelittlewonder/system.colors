@@ -15,6 +15,7 @@ figma.ui.onmessage = msg => {
     // One way of distinguishing between different types of messages sent from
     // your HTML page is to use an object with a "type" property like this.
     if (msg.type === 'create-palette') {
+        const nodes = [];
         const colorsFrame = figma.createFrame();
         const frameHeight = 148;
         const frameWidth = (msg.colorsList.length * 124) + 24;
@@ -29,7 +30,9 @@ figma.ui.onmessage = msg => {
             rect.fills = [{ type: 'SOLID', color: { r: rgbColor[0] / 255, g: rgbColor[1] / 255, b: rgbColor[2] / 255 } }];
             figma.currentPage.appendChild(rect);
             colorsFrame.appendChild(rect);
+            nodes.push(rect);
         }
+        figma.viewport.scrollAndZoomIntoView(nodes);
     }
     // Make sure to close the plugin when you're done. Otherwise the plugin will
     // keep running, which shows the cancel button at the bottom of the screen.
