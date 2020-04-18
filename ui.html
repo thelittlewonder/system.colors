@@ -1,3 +1,4 @@
+<!--Styles-->
 <style>
   span {
     font-family: "Inter", sans-serif;
@@ -68,7 +69,7 @@
 
   #search:focus {
     outline: none;
-    border: 1px solid #555;
+    border: 1px solid #444;
   }
 
   .no-results {
@@ -81,20 +82,25 @@
     text-align: center;
     line-height: 2;
   }
-  .divider{
+
+  .divider {
     height: 0px;
     margin: 16px 0px 0 0px;
     border-bottom: 1px solid #eee;
   }
 </style>
 <span>Add palettes from famous brands to your file</span>
+<!--Search-->
 <input type="text" id="search" onkeyup="filter()" placeholder="Search...">
+<!--Divider-->
 <div class="divider"></div>
 <script>
   // define palettes
   var colors = [{
-      "brand_name": "Facebook",
-      "colors": ["#4267B2"]
+      "brand_name": "Apple",
+      "colors": ["#157EFA", "#3DC55D", "#595AD3", "#FD9426", "#FD9426", "#AE58DB", "#FC3D39", "#60C9F8", "#FECB2F",
+        "8E8E93", "AEAEB2"
+      ]
     },
     {
       "brand_name": "Twitter",
@@ -103,6 +109,9 @@
     {
       "brand_name": "GitHub",
       "colors": ["#6a737d", "#0366d6", "#28a745", "#6f42c1", "#ffd33d", "#f66a0a", "#d73a49", "#ea4aaa"]
+    }, {
+      "brand_name": "Facebook",
+      "colors": ["#4267B2"]
     },
     {
       "brand_name": "Segment",
@@ -131,22 +140,157 @@
     {
       "brand_name": "Hubspot",
       "colors": ["#00a4bd", "#ff7a59", "#33475b", "#f2545b", "#ff8f59", "#f5c26b", "#00bda5", "#6a78d1", "#f2547d"]
+    },
+    {
+      "brand_name": "Elastic",
+      "colors": ["#006BB4", "#017D73", "#DD0A73", "#BD271E", "#F5A700", "#343741"]
+    },
+    {
+      "brand_name": "IBM",
+      "colors": ["#da1e28", "#d12771", "#8a3ffc", "#0f62fe", "#0072c3", "#007d79", "#198038"]
+    },
+    {
+      "brand_name": "Mailchimp",
+      "colors": ["#FFE01B", "#241C15", "#403B3B", "#8C8C8C", "#B7A9A1", "#DBD9D2", "#007C89", "#00C14E", "#F25F25",
+        "#E7B75F", "#FF3EBF", "#692340"
+      ]
+    },
+    {
+      "brand_name": "Salesforce",
+      "colors": ["#0070d2", "#1a1b1e", "#c9c7c5", "#bf0201", "#1589ee", "#006dcc", "#3e3e3c", "#080707"]
+    },
+    {
+      "brand_name": "MongoDB",
+      "colors": ["#0E7E3D", "#168B46", "#13AA52", "#303434", "#464c4f", "#626668", "#fbb129", "#43b1e5", "#ef4c4c",
+        "#13AA52"
+      ]
+    },
+    {
+      "brand_name": "Mixpanel",
+      "colors": ["#1868fb", "#004fe2", "#001caf", "#e16d0e", "#c85400", "#e4567b", "#cb3d62", "#00805e", "#006745"]
+    },
+    {
+      "brand_name": "Atlassian",
+      "colors": ["#0052CC", "#172B4D", "#FF5630", "#FFAB00", "#36B37E", "#00B8D9", "#6554C0"]
+    },
+    {
+      "brand_name": "Trello",
+      "colors": ["#0052CC", "#172B4D", "#FF5630", "#FFAB00", "#36B37E", "#00B8D9", "#6554C0"]
+    },
+    {
+      "brand_name": "Gitlab",
+      "colors": ["#1aaa55", "#1f78d1", "#de7e00", "#db3b21", "#a7a7a7", "#2e2e2e", "#4f4f4f"]
+    },
+    {
+      "brand_name": "Microsoft",
+      "colors": ["#d83b01", "#0078d4", "#217346", "#7719aa", "#31752f", "#742774", "#b7472a", "#a4373a", "#077568",
+        "#6264a7", "#3955a3"
+      ]
+    },
+    {
+      "brand_name": "Pluralsight",
+      "colors": ["#0D0F12", "#181C20", "#F0F3F5", "#F7F9FA", "#0084BD", "#009E52", "#FAD000", "#D21C09", "#0084BD",
+        "#E80A89", "#F15B2A"
+      ]
+    },
+    {
+      "brand_name": "Firefox",
+      "colors": ["#45a1ff", "#00feff", "#ff1ad9", "#30e60b", "#ffe900", "#ff0039", "#c069ff", "#ff9400", "#363959",
+        "#f9f9fa"
+      ]
+    },
+    {
+      "brand_name": "Sendgrid",
+      "colors": ["#1A82e2", "#294661", "#00b3e3", "#009dd9", "#99e1f4", "#ff5722", "#4cb04f", "#2196f3", "#7c4dff",
+        "#18c96e"
+      ]
+    },
+    {
+      "brand_name": "Sprout",
+      "colors": ["#0ca750", "#0797ae", "#002838", "#6f5ed3", "#2079c3", "#364141", "#2079c3", "#ffbc00", "#c63434",
+        "#273333", "#364141", "#dee1e1"
+      ]
+    },
+    {
+      "brand_name": "Shopify",
+      "colors": ["#DFE3E8", "#212B36", "#43467F", "#9C6ADE", "#5C6AC4", "#006FBB", "#47C1BF", "#50B83C", "#EEC200",
+        "#F49342", "#DE3618"
+      ]
+    },
+    {
+      "brand_name": "Shopify",
+      "colors": ["#DFE3E8", "#212B36", "#43467F", "#9C6ADE", "#5C6AC4", "#006FBB", "#47C1BF", "#50B83C", "#EEC200",
+        "#F49342", "#DE3618"
+      ]
+    },
+    {
+      "brand_name": "Buzzfeed",
+      "colors": ["#ee3322", "#e40c78", "#0f65ef", "#6645dd", "#ffee00", "#f47f16", "#007c7c", "#68af15", "#222222",
+        "#aaaaaa", "#d7d7d7"
+      ]
+    },
+    {
+      "brand_name": "Adobe",
+      "colors": ["#2c2c2c", "#4b4b4b", "#6e6e6e", "#b3b3b3", "#cacaca", "#1473e6", "#d7373f", "#da7b11", "#268e6c"]
+    },
+    {
+      "brand_name": "Stack Overflow",
+      "colors": ["#f2720c", "#6a737c", "#0095ff", "#7aa7c7", "#ddb624", "#48a868", "#d1383d", "#ffcc01", "#b4b8bc",
+        "#caa789"
+      ]
+    },
+    {
+      "brand_name": "Meetup",
+      "colors": ["#f6f7f8", "#757575", "#353e48", "#f13a59", "#d32d4a", "#ff99d1", "#ffe533", "#4dd1ed", "#371eac",
+        "#00a2c7", "#7000b0", "#ff5b0f", "#00d480", "#59db33", "#0f1721"
+      ]
+    },
+    {
+      "brand_name": "Workday",
+      "colors": ["#a6d2ff", "#0875e1", "#ffa126", "#43c463", "#de2e21", "#005cb9", "#b9c0c7", "#e8ebed", "#7b858f",
+        "#333d47","#494949","#333333"
+      ]
+    },
+    {
+      "brand_name": "Yelp",
+      "colors": ["#d32323","#0073bb","#333333","#f5f5f5","#e6e6e6","#cccccc"
+      ]
+    },
+    {
+      "brand_name": "Zeit",
+      "colors": ["#000000","#0076FF","#FAFBFC","#D400FF","#FF0000","#FF0080","#D9931E","#F5A623","#F8E71C","#50E3C2","#79FFE1","#2CBE4E","#028265"
+      ]
+    },
+    {
+      "brand_name": "Zendesk",
+      "colors": ["#78A300","#30AABC","#E7AFA2","#EB4962","#EB6651","#F79A3E","#EFC93D","#D4AE5E","#2F3941","#0F3554"
+      ]
+    },
+    {
+      "brand_name": "Thumbtack",
+      "colors": ["#1AA0D7","#5B6CDF","#A983ED","#36B684","#FDBD32","#FD5C63","#2F3033","#D3D4D5"
+      ]
     }
   ];
 
   //create UI
   for (let i = 0; i < colors.length; i++) {
+    //create main container
     let brand = document.createElement('div');
     brand.classList.add('brand-box');
 
+    //create header component
     let header = document.createElement('div');
     header.classList.add('header')
-
+    
+    //create header text element
     let brandName = document.createElement('h2');
     brandName.innerHTML = colors[i].brand_name;
 
+    //create add button
     let addButton = document.createElement('button');
     addButton.innerHTML = 'Add +';
+    //add event listener on click
     addButton.onclick = () => {
       let colorsList = colors[i].colors
       let name = colors[i].brand_name
@@ -159,10 +303,12 @@
       }, '*')
     }
 
+    //add elements to header component, and add header component to main box
     header.appendChild(brandName);
     header.appendChild(addButton);
     brand.appendChild(header);
 
+    //loop through the palettes to create list
     let brandColors = document.createElement('div');
     brandColors.classList.add('color-list');
 
@@ -175,6 +321,7 @@
     }
     brand.appendChild(brandColors);
 
+    //add the main container to the body
     let bodyEl = document.querySelector('body');
     bodyEl.appendChild(brand);
   }

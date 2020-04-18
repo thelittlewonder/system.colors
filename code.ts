@@ -1,13 +1,7 @@
-// This plugin will open a modal to prompt the user to enter a number, and
-// it will then create that many rectangles on the screen.
-
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs in the <script> tag inside "ui.html" which has a
-// full browser enviroment (see documentation).
-
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__);
+figma.showUI(__html__,{ width: 300, height: 600 });
 
+//function to convert hex color code to RGB because figma takes fill input as RGB
 function hex2rgb(hex: string): number[] {
   return [Number('0x' + hex[1] + hex[2]) | 0, Number('0x' + hex[3] + hex[4]) | 0, Number('0x' + hex[5] + hex[6])| 0];
 }
@@ -16,15 +10,17 @@ function hex2rgb(hex: string): number[] {
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
 figma.ui.onmessage = msg => {
-  // One way of distinguishing between different types of messages sent from
-  // your HTML page is to use an object with a "type" property like this.
   if (msg.type === 'create-palette') {
     const nodes: SceneNode[] = [];
+    //create frame
     const colorsFrame = figma.createFrame();
+    //set height and width with 24px padding
     const frameHeight = 148
     const frameWidth = (msg.colorsList.length * 124) + 24;
     colorsFrame.resizeWithoutConstraints(frameWidth, frameHeight);
+    //set frame name
     colorsFrame.name = msg.name + " Colors"
+    //loop to create color rectangles
     for (let i = 0; i < msg.colorsList.length; i++) {
       const rect = figma.createRectangle();
       rect.y = 24;
@@ -38,8 +34,5 @@ figma.ui.onmessage = msg => {
     }
     figma.viewport.scrollAndZoomIntoView(nodes);
   }
-
-  // Make sure to close the plugin when you're done. Otherwise the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
   figma.closePlugin();
 };
