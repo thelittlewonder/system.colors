@@ -1,31 +1,148 @@
-<h2>Pro Color Palette</h2>
-<p>Count: <input id="count" value="5"></p>
-<button id="create">Create</button>
-<button id="cancel">Cancel</button>
-<script>
-  function loadJSON(callback) {
-
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', '', true);
-    xobj.onreadystatechange = function () {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-        // .open will NOT return a value but simply returns undefined in async mode so use a callback
-        callback(xobj.responseText);
-      }
-    }
-    xobj.send(null);
+<style>
+  span {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    color: #666;
+    padding: 16px 8px;
   }
 
-  loadJSON(function (response) {
-    jsonresponse = JSON.parse(response);
-    console.log(jsonresponse);
-  });
+  .brand-box {
+    font-family: "Inter", sans-serif;
+    border-bottom: 1px solid #eee;
+    padding: 16px 8px;
+  }
 
-  loadJSON();
+  .brand-box .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+  .brand-box .header h2 {
+    font-size: 14px;
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+  }
 
-  document.getElementById('create').onclick = () => {
+  .brand-box .header button {
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    align-self: flex-start;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+
+  .brand-box .color-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-top: 12px;
+  }
+
+  .brand-box .color-list .color {
+    height: 40px;
+    min-width: 40px;
+    width: 40px;
+    border-radius: 100%;
+    margin-right: 8px;
+  }
+</style>
+<span>Add palettes from famous brands to your file</span>
+<script>
+  // define palettes
+  var colors = [{
+      "brand_name": "Facebook",
+      "colors": ["#4267B2"]
+    },
+    {
+      "brand_name": "Twitter",
+      "colors": ["#1DA1F2", "#14171A", "#657786", "#AAB8C2", "#E1E8ED"]
+    },
+    {
+      "brand_name": "GitHub",
+      "colors": ["#6a737d", "#0366d6", "#28a745", "#6f42c1", "#ffd33d", "#f66a0a", "#d73a49", "#ea4aaa"]
+    },
+    {
+      "brand_name": "Segment",
+      "colors": ["#425A70", "#1070CA", "#EC4C47", "#D9822B", "#F7D154", "#47B881", "#14B5D0", "#735DD0"]
+    },
+    {
+      "brand_name": "Elastic",
+      "colors": ["#006BB4", "#017D73", "#DD0A73", "#BD271E", "#F5A700", "#FAFBFD", "#343741"]
+    },
+    {
+      "brand_name": "Gojek",
+      "colors": ["#31B057", "#25282B", "#388BF2", "#E52A34", "#FBAF18", "#FC8338"]
+    },
+    {
+      "brand_name": "Atlassian",
+      "colors": ["#0052CC", "#172B4D", "#FF5630", "#FFAB00", "#36B37E", "#00B8D9", "#6554C0"]
+    },
+    {
+      "brand_name": "Skyscanner",
+      "colors": ["#0770e3", "#02122c", "#042759", "#084eb2", "#00a698", "#ff9400", "#ff7b59", "#5a489b", "#d1435b"]
+    },
+    {
+      "brand_name": "Uber",
+      "colors": ["#000000", "#276EF1", "#D44333", "#21A453", "#FFC043", "#545454", "#757575"]
+    },
+    {
+      "brand_name": "Hubspot",
+      "colors": ["#00a4bd", "#ff7a59", "#33475b", "#f2545b", "#ff8f59", "#f5c26b", "#00bda5", "#6a78d1", "#f2547d"]
+    }
+  ];
+
+  //create UI
+  for (let i = 0; i < colors.length; i++) {
+    let brand = document.createElement('div');
+    brand.classList.add('brand-box');
+
+    let header = document.createElement('div');
+    header.classList.add('header')
+
+    let brandName = document.createElement('h2');
+    brandName.innerHTML = colors[i].brand_name;
+
+    let addButton = document.createElement('button');
+    addButton.innerHTML = 'Add +';
+    addButton.onclick = () => {
+      let colorsList = colors[i].colors
+      let name = colors[i].brand_name
+      parent.postMessage({
+        pluginMessage: {
+          type: 'create-palette',
+          colorsList,
+          name
+        }
+      }, '*')
+    }
+
+    header.appendChild(brandName);
+    header.appendChild(addButton);
+    brand.appendChild(header);
+
+    let brandColors = document.createElement('div');
+    brandColors.classList.add('color-list');
+
+    var j;
+    for (j = 0; j < colors[i].colors.length; j++) {
+      let color = document.createElement('div');
+      color.classList.add('color');
+      color.style.backgroundColor = colors[i].colors[j];
+      brandColors.appendChild(color);
+    }
+    brand.appendChild(brandColors);
+
+    let bodyEl = document.querySelector('body');
+    bodyEl.appendChild(brand);
+  }
+  /*document.getElementById('create').onclick = () => {
     const textbox = document.getElementById('count');
     const count = parseInt(textbox.value, 10);
     parent.postMessage({
@@ -42,5 +159,5 @@
         type: 'cancel'
       }
     }, '*')
-  }
+  }*/
 </script>
