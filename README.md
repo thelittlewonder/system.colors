@@ -1,5 +1,5 @@
 ## system.Colors()
-<img src="https://raw.githubusercontent.com/thelittlewonder/system.colors/master/docs/header.png?token=AESWG6TDAYSEZT6ENJ3QRCS6USKZ2" alt="system.Colors()"/>
+<img src="https://github.com/thelittlewonder/system.colors/blob/master/docs/header.png?raw=true" alt="system.Colors()"/>
 Import color palettes from popular design systems directly to your file.
 
 ## <img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" height="18px"/> [Install in Figma](https://www.figma.com/community/plugin/832358256915224919)
