@@ -1,5 +1,5 @@
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__, { width: 300, height: 600 });
+figma.showUI(__html__, { width: 300, height: 300 });
 //function to convert hex color code to RGB because figma takes fill input as RGB
 function hex2rgb(hex) {
     return [Number('0x' + hex[1] + hex[2]) | 0, Number('0x' + hex[3] + hex[4]) | 0, Number('0x' + hex[5] + hex[6]) | 0];
