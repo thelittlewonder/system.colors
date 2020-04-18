@@ -19,7 +19,7 @@ figma.ui.onmessage = msg => {
         const frameHeight = 148;
         const frameWidth = (msg.colorsList.length * 124) + 24;
         colorsFrame.resizeWithoutConstraints(frameWidth, frameHeight);
-        colorsFrame.name = msg.name + " Palette";
+        colorsFrame.name = msg.name + " Colors";
         for (let i = 0; i < msg.colorsList.length; i++) {
             const rect = figma.createRectangle();
             rect.y = 24;

@@ -46,14 +46,50 @@
   }
 
   .brand-box .color-list .color {
-    height: 40px;
-    min-width: 40px;
-    width: 40px;
+    height: 32px;
+    min-width: 32px;
+    width: 32px;
     border-radius: 100%;
     margin-right: 8px;
   }
+
+  #search {
+    margin: 8px 8px 0 8px;
+    padding: 4px;
+    font-family: "Inter", sans-serif;
+    color: #333333;
+    font-size: 12px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+  }
+
+  #search:focus {
+    outline: none;
+    border: 1px solid #555;
+  }
+
+  .no-results {
+    padding: 8px;
+    margin: 8px;
+    font-family: "Inter", sans-serif;
+    background-color: #eee;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+    line-height: 2;
+  }
+  .divider{
+    height: 0px;
+    margin: 16px 0px 0 0px;
+    border-bottom: 1px solid #eee;
+  }
 </style>
 <span>Add palettes from famous brands to your file</span>
+<input type="text" id="search" onkeyup="filter()" placeholder="Search...">
+<div class="divider"></div>
 <script>
   // define palettes
   var colors = [{
@@ -142,22 +178,45 @@
     let bodyEl = document.querySelector('body');
     bodyEl.appendChild(brand);
   }
-  /*document.getElementById('create').onclick = () => {
-    const textbox = document.getElementById('count');
-    const count = parseInt(textbox.value, 10);
-    parent.postMessage({
-      pluginMessage: {
-        type: 'create-rectangles',
-        count
-      }
-    }, '*')
-  }
 
-  document.getElementById('cancel').onclick = () => {
-    parent.postMessage({
-      pluginMessage: {
-        type: 'cancel'
+
+  /*filter functionality*/
+
+  //get all the headings for searching
+  let elList = document.getElementsByTagName('h2');
+
+  //create empty state
+  noResult = document.createElement('div');
+  noResult.classList.add('no-results');
+  noResult.innerHTML = 'ಥ﹏ಥ  <br/> No Results'
+  noResult.style.display = "none";
+  let bodyEl = document.querySelector('body');
+  bodyEl.appendChild(noResult);
+
+  //the filter function
+  function filter() {
+    //get the query and convert it to uppercase
+    let query = document.getElementById('search').value.toUpperCase();
+
+    //maintain miss list
+    let missCount = 0;
+
+    //check the query against each element
+    for (let i = 0; i < elList.length; i++) {
+      if (elList[i].innerHTML.toUpperCase().indexOf(query) > -1) {
+        //match found
+        elList[i].parentElement.parentElement.style.display = ""
+      } else {
+        //match not found
+        elList[i].parentElement.parentElement.style.display = "none";
+        missCount++;
       }
-    }, '*')
-  }*/
+      //show empty state if 100% miss
+      if (missCount == elList.length) {
+        noResult.style.display = "";
+      } else {
+        noResult.style.display = "none";
+      }
+    }
+  }
 </script>
