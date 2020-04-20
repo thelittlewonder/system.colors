@@ -97,171 +97,221 @@
 <script>
   // define palettes
   var colors = [{
-      "brand_name": "Apple",
-      "colors": ["#157EFA", "#3DC55D", "#595AD3", "#FD9426", "#FD9426", "#AE58DB", "#FC3D39", "#60C9F8", "#FECB2F",
-        "8E8E93", "AEAEB2"
-      ]
-    },
-    {
-      "brand_name": "Twitter",
-      "colors": ["#1DA1F2", "#14171A", "#657786", "#AAB8C2", "#E1E8ED"]
-    },
-    {
-      "brand_name": "GitHub",
-      "colors": ["#6a737d", "#0366d6", "#28a745", "#6f42c1", "#ffd33d", "#f66a0a", "#d73a49", "#ea4aaa"]
-    }, {
-      "brand_name": "Facebook",
-      "colors": ["#4267B2"]
-    },
-    {
-      "brand_name": "Segment",
-      "colors": ["#425A70", "#1070CA", "#EC4C47", "#D9822B", "#F7D154", "#47B881", "#14B5D0", "#735DD0"]
-    },
-    {
-      "brand_name": "Elastic",
-      "colors": ["#006BB4", "#017D73", "#DD0A73", "#BD271E", "#F5A700", "#FAFBFD", "#343741"]
-    },
-    {
-      "brand_name": "Gojek",
-      "colors": ["#31B057", "#25282B", "#388BF2", "#E52A34", "#FBAF18", "#FC8338"]
-    },
-    {
-      "brand_name": "Atlassian",
-      "colors": ["#0052CC", "#172B4D", "#FF5630", "#FFAB00", "#36B37E", "#00B8D9", "#6554C0"]
-    },
-    {
-      "brand_name": "Skyscanner",
-      "colors": ["#0770e3", "#02122c", "#042759", "#084eb2", "#00a698", "#ff9400", "#ff7b59", "#5a489b", "#d1435b"]
-    },
-    {
-      "brand_name": "Uber",
-      "colors": ["#000000", "#276EF1", "#D44333", "#21A453", "#FFC043", "#545454", "#757575"]
-    },
-    {
-      "brand_name": "Hubspot",
-      "colors": ["#00a4bd", "#ff7a59", "#33475b", "#f2545b", "#ff8f59", "#f5c26b", "#00bda5", "#6a78d1", "#f2547d"]
-    },
-    {
-      "brand_name": "Elastic",
-      "colors": ["#006BB4", "#017D73", "#DD0A73", "#BD271E", "#F5A700", "#343741"]
-    },
-    {
-      "brand_name": "IBM",
-      "colors": ["#da1e28", "#d12771", "#8a3ffc", "#0f62fe", "#0072c3", "#007d79", "#198038"]
-    },
-    {
-      "brand_name": "Mailchimp",
-      "colors": ["#FFE01B", "#241C15", "#403B3B", "#8C8C8C", "#B7A9A1", "#DBD9D2", "#007C89", "#00C14E", "#F25F25",
-        "#E7B75F", "#FF3EBF", "#692340"
-      ]
-    },
-    {
-      "brand_name": "Salesforce",
-      "colors": ["#0070d2", "#1a1b1e", "#c9c7c5", "#bf0201", "#1589ee", "#006dcc", "#3e3e3c", "#080707"]
-    },
-    {
-      "brand_name": "MongoDB",
-      "colors": ["#0E7E3D", "#168B46", "#13AA52", "#303434", "#464c4f", "#626668", "#fbb129", "#43b1e5", "#ef4c4c",
-        "#13AA52"
-      ]
-    },
-    {
-      "brand_name": "Mixpanel",
-      "colors": ["#1868fb", "#004fe2", "#001caf", "#e16d0e", "#c85400", "#e4567b", "#cb3d62", "#00805e", "#006745"]
-    },
-    {
-      "brand_name": "Trello",
-      "colors": ["#0052CC", "#172B4D", "#FF5630", "#FFAB00", "#36B37E", "#00B8D9", "#6554C0"]
-    },
-    {
-      "brand_name": "Gitlab",
-      "colors": ["#1aaa55", "#1f78d1", "#de7e00", "#db3b21", "#a7a7a7", "#2e2e2e", "#4f4f4f"]
-    },
-    {
-      "brand_name": "Microsoft",
-      "colors": ["#d83b01", "#0078d4", "#217346", "#7719aa", "#31752f", "#742774", "#b7472a", "#a4373a", "#077568",
-        "#6264a7", "#3955a3"
-      ]
-    },
-    {
-      "brand_name": "Pluralsight",
-      "colors": ["#0D0F12", "#181C20", "#F0F3F5", "#F7F9FA", "#0084BD", "#009E52", "#FAD000", "#D21C09", "#0084BD",
-        "#E80A89", "#F15B2A"
-      ]
-    },
-    {
-      "brand_name": "Firefox",
-      "colors": ["#45a1ff", "#00feff", "#ff1ad9", "#30e60b", "#ffe900", "#ff0039", "#c069ff", "#ff9400", "#363959",
-        "#f9f9fa"
-      ]
-    },
-    {
-      "brand_name": "Sendgrid",
-      "colors": ["#1A82e2", "#294661", "#00b3e3", "#009dd9", "#99e1f4", "#ff5722", "#4cb04f", "#2196f3", "#7c4dff",
-        "#18c96e"
-      ]
-    },
-    {
-      "brand_name": "Sprout",
-      "colors": ["#0ca750", "#0797ae", "#002838", "#6f5ed3", "#2079c3", "#364141", "#2079c3", "#ffbc00", "#c63434",
-        "#273333", "#364141", "#dee1e1"
-      ]
-    },
-    {
-      "brand_name": "Shopify",
-      "colors": ["#DFE3E8", "#212B36", "#43467F", "#9C6ADE", "#5C6AC4", "#006FBB", "#47C1BF", "#50B83C", "#EEC200",
-        "#F49342", "#DE3618"
-      ]
-    },
-    {
-      "brand_name": "Buzzfeed",
-      "colors": ["#ee3322", "#e40c78", "#0f65ef", "#6645dd", "#ffee00", "#f47f16", "#007c7c", "#68af15", "#222222",
-        "#aaaaaa", "#d7d7d7"
-      ]
-    },
-    {
-      "brand_name": "Adobe",
-      "colors": ["#2c2c2c", "#4b4b4b", "#6e6e6e", "#b3b3b3", "#cacaca", "#1473e6", "#d7373f", "#da7b11", "#268e6c"]
-    },
-    {
-      "brand_name": "Stack Overflow",
-      "colors": ["#f2720c", "#6a737c", "#0095ff", "#7aa7c7", "#ddb624", "#48a868", "#d1383d", "#ffcc01", "#b4b8bc",
-        "#caa789"
-      ]
-    },
-    {
-      "brand_name": "Meetup",
-      "colors": ["#f6f7f8", "#757575", "#353e48", "#f13a59", "#d32d4a", "#ff99d1", "#ffe533", "#4dd1ed", "#371eac",
-        "#00a2c7", "#7000b0", "#ff5b0f", "#00d480", "#59db33", "#0f1721"
-      ]
-    },
-    {
-      "brand_name": "Workday",
-      "colors": ["#a6d2ff", "#0875e1", "#ffa126", "#43c463", "#de2e21", "#005cb9", "#b9c0c7", "#e8ebed", "#7b858f",
-        "#333d47","#494949","#333333"
-      ]
-    },
-    {
-      "brand_name": "Yelp",
-      "colors": ["#d32323","#0073bb","#333333","#f5f5f5","#e6e6e6","#cccccc"
-      ]
-    },
-    {
-      "brand_name": "Zeit",
-      "colors": ["#000000","#0076FF","#FAFBFC","#D400FF","#FF0000","#FF0080","#D9931E","#F5A623","#F8E71C","#50E3C2","#79FFE1","#2CBE4E","#028265"
-      ]
-    },
-    {
-      "brand_name": "Zendesk",
-      "colors": ["#78A300","#30AABC","#E7AFA2","#EB4962","#EB6651","#F79A3E","#EFC93D","#D4AE5E","#2F3941","#0F3554"
-      ]
-    },
-    {
-      "brand_name": "Thumbtack",
-      "colors": ["#1AA0D7","#5B6CDF","#A983ED","#36B684","#FDBD32","#FD5C63","#2F3033","#D3D4D5"
-      ]
-    }
-  ];
+    "brand_name": "Adobe",
+    "colors": ["#2c2c2c", "#4b4b4b", "#6e6e6e", "#b3b3b3", "#cacaca", "#1473e6", "#d7373f", "#da7b11", "#268e6c"]
+  }, {
+    "brand_name": "Alibaba",
+    "colors": ["#f5222d", "#fa541c", "#fa8c16", "#faad14", "#fadb14", "#a0d911", "#52c41a", "#13c2c2", "#1890ff",
+      "#2f54eb", "#722ed1", "#eb2f96", "#bfbfbf"
+    ]
+  }, {
+    "brand_name": "Apple",
+    "colors": ["#157EFA", "#3DC55D", "#595AD3", "#FD9426", "#FD9426", "#AE58DB", "#FC3D39", "#60C9F8", "#FECB2F",
+      "8E8E93", "AEAEB2"
+    ]
+  }, {
+    "brand_name": "Atlassian",
+    "colors": ["#0052CC", "#172B4D", "#FF5630", "#FFAB00", "#36B37E", "#00B8D9", "#6554C0"]
+  }, {
+    "brand_name": "Bulb",
+    "colors": ["#E4228E", "#003366", "#00AB55", "#00AB55", "#EE0000", "#FF6200", "#F2F2F2", "#CCCCCC", "#8c"]
+  }, {
+    "brand_name": "Buzzfeed",
+    "colors": ["#ee3322", "#e40c78", "#0f65ef", "#6645dd", "#ffee00", "#f47f16", "#007c7c", "#68af15", "#222222",
+      "#aaaaaa", "#d7d7d7"
+    ]
+  }, {
+    "brand_name": "Cloudfare",
+    "colors": ["#9BCA3E", "#2F7BBF", "#BD2527", "#9F1F21", "#FF7900", "#f56500", "#F7F7F7", "#ebebeb", "#e0e0e0",
+      "#BCBEC0", "#808285", "#7D7D7D", "#4D4D4F", "#404041", "#333333"
+    ]
+  }, {
+    "brand_name": "Elastic",
+    "colors": ["#006BB4", "#017D73", "#DD0A73", "#BD271E", "#F5A700", "#FAFBFD", "#343741"]
+  }, {
+    "brand_name": "Firefox",
+    "colors": ["#45a1ff", "#00feff", "#ff1ad9", "#30e60b", "#ffe900", "#ff0039", "#c069ff", "#ff9400", "#363959",
+      "#f9f9fa"
+    ]
+  }, {
+    "brand_name": "GOV.UK",
+    "colors": ["#1d70b8", "#0b0c0c", "#626a6e", "#1d70b8", "#003078", "#4c2c92", "#0b0c0c", "#b1b4b6", "#0b0c0c",
+      "#ffdd00", "#0b0c0c", "#d4351c"
+    ]
+  }, {
+    "brand_name": "GitHub",
+    "colors": ["#6a737d", "#0366d6", "#28a745", "#6f42c1", "#ffd33d", "#f66a0a", "#d73a49", "#ea4aaa"]
+  }, {
+    "brand_name": "Gitlab",
+    "colors": ["#1aaa55", "#1f78d1", "#de7e00", "#db3b21", "#a7a7a7", "#2e2e2e", "#4f4f4f"]
+  }, {
+    "brand_name": "Gojek",
+    "colors": ["#31B057", "#25282B", "#388BF2", "#E52A34", "#FBAF18", "#FC8338"]
+  }, {
+    "brand_name": "Heartbeat",
+    "colors": ["#62e6ac", "#191919", "#ff8c5f"]
+  }, {
+    "brand_name": "Hubspot",
+    "colors": ["#00a4bd", "#ff7a59", "#33475b", "#f2545b", "#ff8f59", "#f5c26b", "#00bda5", "#6a78d1", "#f2547d"]
+  }, {
+    "brand_name": "IBM",
+    "colors": ["#da1e28", "#d12771", "#8a3ffc", "#0f62fe", "#0072c3", "#007d79", "#198038"]
+  }, {
+    "brand_name": "Kiwi",
+    "colors": ["#00A991", "#007F6D", "#005C4E", "#ECF8F7", "#BAC7D5", "#5F738C", "#252A31", "#EFF2F5", "#E8EDF1",
+      "#28A138", "#E98305", "#0172CB", "#D21C1C"
+    ]
+  }, {
+    "brand_name": "Lonely Planet",
+    "colors": ["#142b44", "#1d508d", "#297CBB", "#288ad6", "#0FDEBD", "#16c98d", "#feef6d", "#ffc83f", "#fa5e5b",
+      "#bf538d", "#2c3643", "#3b444f", "#67747c", "#99a9b3", "#dbe6ec"
+    ]
+  }, {
+    "brand_name": "Mailchimp",
+    "colors": ["#FFE01B", "#241C15", "#403B3B", "#8C8C8C", "#B7A9A1", "#DBD9D2", "#007C89", "#00C14E", "#F25F25",
+      "#E7B75F", "#FF3EBF", "#692340"
+    ]
+  }, {
+    "brand_name": "Marvel",
+    "colors": ["#1FB6FF", "#7E5BEF", "#FF49DB", "#FF7849", "#13CE66", "#FFC82C", "#1F2D3D", "#273444", "#3C4858",
+      "#8492A6"
+    ]
+  }, {
+    "brand_name": "Meetup",
+    "colors": ["#f6f7f8", "#757575", "#353e48", "#f13a59", "#d32d4a", "#ff99d1", "#ffe533", "#4dd1ed", "#371eac",
+      "#00a2c7", "#7000b0", "#ff5b0f", "#00d480", "#59db33", "#0f1721"
+    ]
+  }, {
+    "brand_name": "Mesosphere",
+    "colors": ["#000000", "#1B2029", "#DADDE2", "#DADDE2", "#2182EF", "#E92D40", "#F36858", "#F7A239", "#27C586",
+      "#27C586", "#33D6FD"
+    ]
+  }, {
+    "brand_name": "Microsoft",
+    "colors": ["#d83b01", "#0078d4", "#217346", "#7719aa", "#31752f", "#742774", "#b7472a", "#a4373a", "#077568",
+      "#6264a7", "#3955a3"
+    ]
+  }, {
+    "brand_name": "Mixpanel",
+    "colors": ["#1868fb", "#004fe2", "#001caf", "#e16d0e", "#c85400", "#e4567b", "#cb3d62", "#00805e", "#006745"]
+  }, {
+    "brand_name": "MongoDB",
+    "colors": ["#0E7E3D", "#168B46", "#13AA52", "#303434", "#464c4f", "#626668", "#fbb129", "#43b1e5", "#ef4c4c",
+      "#13AA52"
+    ]
+  }, {
+    "brand_name": "Nutanix",
+    "colors": ["#0d0f11", "#23282e", "#39414b", "#4f5a68", "#1f88de", "#dc4d57", "#e69b0a", "#31bb67", "#657385",
+      "#22a5f7", "#f55656", "#ffbc0b", "#36d068"
+    ]
+  }, {
+    "brand_name": "Paradigm",
+    "colors": ["#333333", "#999999", "#F0F0F0", "#00103D", "#C7C7C7", "#005BD1", "#528FDF", "#28C75D", "#FF1100",
+      "#FF9E00", "#FFD400", "#FF9E00", "#FF4F00", "#CA9CF4", "#3CD298"
+    ]
+  }, {
+    "brand_name": "Pearson",
+    "colors": ["#047b9c", "#005a70", "#ffffff", "#f5f5f5", "#ffb71c", "#ff9b19", "#daf0ed", "#19a5a3", "#252525",
+      "#6a7070", "#c7c7c7", "#d9d9d9", "#e9e9e9", "#db0021", "#038238", "#da0473"
+    ]
+  }, {
+    "brand_name": "Pluralsight",
+    "colors": ["#0D0F12", "#181C20", "#F0F3F5", "#F7F9FA", "#0084BD", "#009E52", "#FAD000", "#D21C09", "#0084BD",
+      "#E80A89", "#F15B2A"
+    ]
+  }, {
+    "brand_name": "Priceline",
+    "colors": ["#000000", "#001833", "#007aff", "#e8f2ff", "#049", "#edf0f3", "#0a0", "#c00", "#f68013", "#70b",
+      "#fedc2a", "#fe3e81", "#4f6f8f", "#f4f6f8", "#c0cad5", "#364049"
+    ]
+  }, {
+    "brand_name": "Pusher",
+    "colors": ["#549eff", "#58d794", "#f4f8fb", "#d3dce7", "#8690a6", "#414859", "#2b303b", "#43ac6a", "#ffae00",
+      "#b74a48", "#34495e"
+    ]
+  }, {
+    "brand_name": "Rambler",
+    "colors": ["#262626", "#315EFB", "#8D96B2", "#D7DBE4", "#EEF2F4", "#ff564e", "#28bc00", "#ffc000"]
+  }, {
+    "brand_name": "Salesforce",
+    "colors": ["#0070d2", "#1a1b1e", "#c9c7c5", "#bf0201", "#1589ee", "#006dcc", "#3e3e3c", "#080707"]
+  }, {
+    "brand_name": "Segment",
+    "colors": ["#425A70", "#1070CA", "#EC4C47", "#D9822B", "#F7D154", "#47B881", "#14B5D0", "#735DD0"]
+  }, {
+    "brand_name": "Sendgrid",
+    "colors": ["#1A82e2", "#294661", "#00b3e3", "#009dd9", "#99e1f4", "#ff5722", "#4cb04f", "#2196f3", "#7c4dff",
+      "#18c96e"
+    ]
+  }, {
+    "brand_name": "Shopify",
+    "colors": ["#DFE3E8", "#212B36", "#43467F", "#9C6ADE", "#5C6AC4", "#006FBB", "#47C1BF", "#50B83C", "#EEC200",
+      "#F49342", "#DE3618"
+    ]
+  }, {
+    "brand_name": "Sky",
+    "colors": ["#0072c9", "#73add8", "#4a4a4a", "#ff2744", "#299934", "#eaeaea", "#c0c0c0", "#9f9f9f", "#7f7f7f",
+      "#222222"
+    ]
+  }, {
+    "brand_name": "Skyscanner",
+    "colors": ["#0770e3", "#02122c", "#042759", "#084eb2", "#00a698", "#ff9400", "#ff7b59", "#5a489b", "#d1435b"]
+  }, {
+    "brand_name": "Sprout",
+    "colors": ["#0ca750", "#0797ae", "#002838", "#6f5ed3", "#2079c3", "#364141", "#2079c3", "#ffbc00", "#c63434",
+      "#273333", "#364141", "#dee1e1"
+    ]
+  }, {
+    "brand_name": "Stack Overflow",
+    "colors": ["#f2720c", "#6a737c", "#0095ff", "#7aa7c7", "#ddb624", "#48a868", "#d1383d", "#ffcc01", "#b4b8bc",
+      "#caa789"
+    ]
+  }, {
+    "brand_name": "Tembition",
+    "colors": ["#1B9AEE", "#F2FBFF", "#CCECFF", "#87D2FF", "#0171C2", "#004F8A", "#002E52", "#E5E5E5", "#BFBFBF",
+      "#595959", "#595959", "#262626", "#000000", "#15AD31", "#FA8C15", "#FAD414", "#E62412"
+    ]
+  }, {
+    "brand_name": "Thumbtack",
+    "colors": ["#1AA0D7", "#5B6CDF", "#A983ED", "#36B684", "#FDBD32", "#FD5C63", "#2F3033", "#D3D4D5"]
+  }, {
+    "brand_name": "Trello",
+    "colors": ["#0052CC", "#172B4D", "#FF5630", "#FFAB00", "#36B37E", "#00B8D9", "#6554C0"]
+  }, {
+    "brand_name": "Twitter",
+    "colors": ["#1DA1F2", "#14171A", "#657786", "#AAB8C2", "#E1E8ED"]
+  }, {
+    "brand_name": "US CMS",
+    "colors": ["#0071BC", "#205493", "#112E51", "#000000", "#212121", "#323A45", "#AEB0B5", "#02BFE7", "#112E51",
+      "#323A45", "#5B616B", "#2E8540", "#FDB81E", "#E31C3D"
+    ]
+  }, {
+    "brand_name": "Uber",
+    "colors": ["#000000", "#276EF1", "#D44333", "#21A453", "#FFC043", "#545454", "#757575"]
+  }, {
+    "brand_name": "WeWork",
+    "colors": ["#252729", "#c1c1c2", "#ffd16d", "#21465d", "#5499c3", "#d86262", "#599FA0", "#5499c3", "#eae5e0",
+      "#f4f4f1"
+    ]
+  }, {
+    "brand_name": "Workday",
+    "colors": ["#a6d2ff", "#0875e1", "#ffa126", "#43c463", "#de2e21", "#005cb9", "#b9c0c7", "#e8ebed", "#7b858f",
+      "#333d47", "#494949", "#333333"
+    ]
+  }, {
+    "brand_name": "Yelp",
+    "colors": ["#d32323", "#0073bb", "#333333", "#f5f5f5", "#e6e6e6", "#cccccc"]
+  }, {
+    "brand_name": "Zeit",
+    "colors": ["#FAFAFA", "#EAEAEA", "#999999", "#888888", "#666666", "#444444", "#333333", "#111111", "#000000",
+      "#E00000", "#0070F3", "#F5A623", "#FF0080", "#F81CE5", "#7928CA", "#79FFE1"
+    ]
+  }, {
+    "brand_name": "Zendesk",
+    "colors": ["#78A300", "#30AABC", "#E7AFA2", "#EB4962", "#EB6651", "#F79A3E", "#EFC93D", "#D4AE5E", "#2F3941",
+      "#0F3554"
+    ]
+  }];
 
   //create UI
   for (let i = 0; i < colors.length; i++) {
@@ -272,7 +322,7 @@
     //create header component
     let header = document.createElement('div');
     header.classList.add('header')
-    
+
     //create header text element
     let brandName = document.createElement('h2');
     brandName.innerHTML = colors[i].brand_name;
