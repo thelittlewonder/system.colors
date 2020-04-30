@@ -18,6 +18,8 @@ figma.ui.onmessage = msg => {
         colorsFrame.resizeWithoutConstraints(frameWidth, frameHeight);
         //set frame name
         colorsFrame.name = msg.name + " Colors";
+        colorsFrame.x = figma.viewport.center.x;
+        colorsFrame.y = figma.viewport.center.y;
         //loop to create color rectangles
         for (let i = 0; i < msg.colorsList.length; i++) {
             const rect = figma.createRectangle();
