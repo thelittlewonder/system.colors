@@ -32,6 +32,7 @@ figma.ui.onmessage = msg => {
             colorsFrame.appendChild(rect);
             nodes.push(rect);
         }
+        colorsFrame.setRelaunchData({ rerun: 'Add another palette' });
         figma.viewport.scrollAndZoomIntoView(nodes);
     }
     figma.closePlugin();
